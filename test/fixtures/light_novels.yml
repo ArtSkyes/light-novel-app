@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  author: MyString
+  description: MyText
+  release_date: 2024-06-12
+  price: 9.99
+
+two:
+  title: MyString
+  author: MyString
+  description: MyText
+  release_date: 2024-06-12
+  price: 9.99

@@ -1,0 +1,2 @@
+class LightNovel < ApplicationRecord
+end
