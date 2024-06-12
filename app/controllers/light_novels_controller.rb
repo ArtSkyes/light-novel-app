@@ -1,5 +1,5 @@
 class LightNovelsController < ApplicationController
-  before_action :set_light_novel, only: [:show, :edit, :update, :destroy]
+  before_action :set_light_novel, only: %i[show edit update destroy]
 
   # GET /light_novels
   def index
@@ -7,8 +7,7 @@ class LightNovelsController < ApplicationController
   end
 
   # GET /light_novels/1
-  def show
-  end
+  def show; end
 
   # GET /light_novels/new
   def new
@@ -16,15 +15,14 @@ class LightNovelsController < ApplicationController
   end
 
   # GET /light_novels/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /light_novels
   def create
     @light_novel = LightNovel.new(light_novel_params)
-  
+
     if @light_novel.save
-      redirect_to @light_novel, notice: 'Light novel was successfully created.'
+      redirect_to @light_novel, notice: "Light novel was successfully created."
     else
       render :new, status: :unprocessable_entity
     end
@@ -32,8 +30,10 @@ class LightNovelsController < ApplicationController
 
   # PATCH/PUT /light_novels/1
   def update
+    @light_novel = LightNovel.find(params[:id])
+
     if @light_novel.update(light_novel_params)
-      redirect_to @light_novel, notice: 'Light novel was successfully updated.'
+      redirect_to @light_novel, notice: "Light novel was successfully updated."
     else
       render :edit
     end
@@ -42,17 +42,19 @@ class LightNovelsController < ApplicationController
   # DELETE /light_novels/1
   def destroy
     @light_novel.destroy
-    redirect_to light_novels_url, notice: 'Light novel was successfully destroyed.'
+    redirect_to light_novels_url, notice: "Light novel was successfully destroyed."
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_light_novel
-      @light_novel = LightNovel.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def light_novel_params
-      params.require(:light_novel).permit(:title, :author, :description, :release_date, :genre, :rating)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_light_novel
+    @light_novel = LightNovel.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def light_novel_params
+    params.require(:light_novel).permit(:title, :author, :description, :release_date, :genre,
+                                        :rating)
+  end
 end
