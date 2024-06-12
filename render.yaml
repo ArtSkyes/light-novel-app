@@ -9,7 +9,7 @@ services:
     name: light-novel-app
     runtime: ruby
     plan: free
-    buildCommand: "chmod +x ./bin/render-build.sh && ./bin/render-build.sh"
+    buildCommand: "chmod +x ./bin/rails && chmod +x ./bin/render-build.sh && ./bin/render-build.sh"
     startCommand: "bundle exec rails server -b 0.0.0.0 -p $PORT"
     envVars:
       - key: DATABASE_URL
