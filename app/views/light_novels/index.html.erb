@@ -24,7 +24,7 @@
         <td><%= light_novel.rating %></td>
         <td class="actions"><%= link_to 'Show', light_novel, class: 'actions' %></td>
         <td class="actions"><%= link_to 'Edit', edit_light_novel_path(light_novel), class: 'actions' %></td>
-        <td class="actions"><%= link_to 'Destroy', light_novel_path(light_novel), method: :delete, data: { confirm: 'Are you sure?' }, class: 'actions' %></td>
+        <td class="actions"><%= link_to 'Delete', light_novel_path(light_novel), method: :delete, data: { confirm: 'Are you sure?' }, class: 'actions' %></td>
       </tr>
     <% end %>
   </tbody>
