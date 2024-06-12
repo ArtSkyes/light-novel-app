@@ -26,6 +26,7 @@ table.light-novels {
   font-size: 18px;
   min-width: 400px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  overflow-x: auto;
 }
 
 table.light-novels th{
@@ -37,6 +38,8 @@ table.light-novels th{
 table.light-novels td {
   padding: 10px 15px;
   text-align: left;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 
@@ -171,6 +174,8 @@ table.light-novels th.actions {
 
 .show-container p {
   margin-bottom: 10px;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 .show-container strong {
