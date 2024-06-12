@@ -37,7 +37,7 @@
 
   <div class="field">
     <%= form.label :release_date %>
-    <%= form.date_select :release_date, class: 'form-control' + (@light_novel.errors[:release_date].any? ? ' is-invalid' : '') %>
+    <%= form.date_select :release_date, start_year: 1990, end_year: Date.today.year, class: 'form-control' + (@light_novel.errors[:release_date].any? ? ' is-invalid' : '') %>
     <% if @light_novel.errors[:release_date].any? %>
       <div class="invalid-feedback">
         <%= @light_novel.errors.full_messages_for(:release_date).join(", ") %>
