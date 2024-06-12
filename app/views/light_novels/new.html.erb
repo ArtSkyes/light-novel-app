@@ -1,9 +1,9 @@
-<h1>New light novel</h1>
+<h1>New Light Novel</h1>
 
-<%= render "form", light_novel: @light_novel %>
+<div class="form-container">
+  <%= render 'form', light_novel: @light_novel %>
+</div>
 
-<br>
-
-<div>
-  <%= link_to "Back to light novels", light_novels_path %>
+<div class="actions" style="text-align: center; margin-top: 10px;">
+  <%= link_to 'Back', light_novels_path, class: 'actions' %>
 </div>

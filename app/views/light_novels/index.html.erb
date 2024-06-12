@@ -1,14 +1,35 @@
-<p style="color: green"><%= notice %></p>
+<h1>Light Novels</h1>
 
-<h1>Light novels</h1>
+<table class="light-novels">
+  <thead>
+    <tr>
+      <th class="title">Title</th>
+      <th class="author">Author</th>
+      <th class="description">Description</th>
+      <th class="release_date">Release Date</th>
+      <th class="genre">Genre</th>
+      <th class="rating">Rating</th>
+      <th colspan="3" class="actions"></th>
+    </tr>
+  </thead>
 
-<div id="light_novels">
-  <% @light_novels.each do |light_novel| %>
-    <%= render light_novel %>
-    <p>
-      <%= link_to "Show this light novel", light_novel %>
-    </p>
-  <% end %>
+  <tbody>
+    <% @light_novels.each do |light_novel| %>
+      <tr>
+        <td><%= light_novel.title %></td>
+        <td><%= light_novel.author %></td>
+        <td><%= truncate(light_novel.description, length: 50) %></td>
+        <td><%= light_novel.release_date %></td>
+        <td><%= light_novel.genre %></td>
+        <td><%= light_novel.rating %></td>
+        <td class="actions"><%= link_to 'Show', light_novel, class: 'actions' %></td>
+        <td class="actions"><%= link_to 'Edit', edit_light_novel_path(light_novel), class: 'actions' %></td>
+        <td class="actions"><%= link_to 'Destroy', light_novel_path(light_novel), method: :delete, data: { confirm: 'Are you sure?' }, class: 'actions' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<div class="new-light-novel-container">
+  <%= link_to 'Add Light Novel', new_light_novel_path %>
 </div>
-
-<%= link_to "New light novel", new_light_novel_path %>

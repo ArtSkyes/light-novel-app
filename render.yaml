@@ -1,0 +1,20 @@
+databases:
+  - name: test_app
+    databaseName: test_app
+    user: test_app
+    plan: free
+
+services:
+  - type: web
+    name: my_app
+    runtime: ruby
+    plan: free
+    buildCommand: "./bin/render-build.sh"
+    startCommand: "bundle exec rails s"
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: test_app
+          property: connectionString
+      - key: RAILS_MASTER_KEY
+        sync: false
