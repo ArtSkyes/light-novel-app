@@ -1,10 +1,36 @@
-<p style="color: green"><%= notice %></p>
+<div class="show-container">
+  <p>
+    <strong>Title:</strong>
+    <%= @light_novel.title %>
+  </p>
 
-<%= render @light_novel %>
+  <p>
+    <strong>Author:</strong>
+    <%= @light_novel.author %>
+  </p>
 
-<div>
-  <%= link_to "Edit this light novel", edit_light_novel_path(@light_novel) %> |
-  <%= link_to "Back to light novels", light_novels_path %>
+  <p>
+    <strong>Description:</strong>
+    <%= @light_novel.description %>
+  </p>
 
-  <%= button_to "Destroy this light novel", @light_novel, method: :delete %>
+  <p>
+    <strong>Release Date:</strong>
+    <%= @light_novel.release_date %>
+  </p>
+
+  <p>
+    <strong>Genre:</strong>
+    <%= @light_novel.genre %>
+  </p>
+
+  <p>
+    <strong>Rating:</strong>
+    <%= @light_novel.rating %>
+  </p>
+
+  <div class="actions">
+    <%= link_to 'Edit', edit_light_novel_path(@light_novel), class: 'actions' %> |
+    <%= link_to 'Back', light_novels_path, class: 'actions' %>
+  </div>
 </div>

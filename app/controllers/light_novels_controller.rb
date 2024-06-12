@@ -1,12 +1,12 @@
 class LightNovelsController < ApplicationController
-  before_action :set_light_novel, only: %i[ show edit update destroy ]
+  before_action :set_light_novel, only: [:show, :edit, :update, :destroy]
 
-  # GET /light_novels or /light_novels.json
+  # GET /light_novels
   def index
     @light_novels = LightNovel.all
   end
 
-  # GET /light_novels/1 or /light_novels/1.json
+  # GET /light_novels/1
   def show
   end
 
@@ -19,42 +19,30 @@ class LightNovelsController < ApplicationController
   def edit
   end
 
-  # POST /light_novels or /light_novels.json
+  # POST /light_novels
   def create
     @light_novel = LightNovel.new(light_novel_params)
-
-    respond_to do |format|
-      if @light_novel.save
-        format.html { redirect_to light_novel_url(@light_novel), notice: "Light novel was successfully created." }
-        format.json { render :show, status: :created, location: @light_novel }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @light_novel.errors, status: :unprocessable_entity }
-      end
+  
+    if @light_novel.save
+      redirect_to @light_novel, notice: 'Light novel was successfully created.'
+    else
+      render :new, status: :unprocessable_entity
     end
   end
 
-  # PATCH/PUT /light_novels/1 or /light_novels/1.json
+  # PATCH/PUT /light_novels/1
   def update
-    respond_to do |format|
-      if @light_novel.update(light_novel_params)
-        format.html { redirect_to light_novel_url(@light_novel), notice: "Light novel was successfully updated." }
-        format.json { render :show, status: :ok, location: @light_novel }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @light_novel.errors, status: :unprocessable_entity }
-      end
+    if @light_novel.update(light_novel_params)
+      redirect_to @light_novel, notice: 'Light novel was successfully updated.'
+    else
+      render :edit
     end
   end
 
-  # DELETE /light_novels/1 or /light_novels/1.json
+  # DELETE /light_novels/1
   def destroy
-    @light_novel.destroy!
-
-    respond_to do |format|
-      format.html { redirect_to light_novels_url, notice: "Light novel was successfully destroyed." }
-      format.json { head :no_content }
-    end
+    @light_novel.destroy
+    redirect_to light_novels_url, notice: 'Light novel was successfully destroyed.'
   end
 
   private
@@ -65,6 +53,6 @@ class LightNovelsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def light_novel_params
-      params.require(:light_novel).permit(:title, :author, :description, :release_date, :price)
+      params.require(:light_novel).permit(:title, :author, :description, :release_date, :genre, :rating)
     end
 end
