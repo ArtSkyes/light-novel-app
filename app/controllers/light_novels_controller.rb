@@ -30,6 +30,8 @@ class LightNovelsController < ApplicationController
 
   # PATCH/PUT /light_novels/1
   def update
+    @light_novel = LightNovel.find(params[:id])
+
     if @light_novel.update(light_novel_params)
       redirect_to @light_novel, notice: "Light novel was successfully updated."
     else
