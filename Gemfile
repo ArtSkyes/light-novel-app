@@ -66,6 +66,7 @@ group :test do
   gem "selenium-webdriver"
 end
 
-gem 'rubocop', require: false
+gem 'rubocop'
+gem 'rubocop-rails'
 
 gem 'dotenv-rails', groups: [:development, :test]
