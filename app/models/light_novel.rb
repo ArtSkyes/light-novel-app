@@ -9,7 +9,7 @@ end
 class LightNovel < ApplicationRecord
   validates :title, presence: true, length: { maximum: 100 }, uniqueness: true # rubocop:disable Rails/UniqueValidationWithoutIndex
   validates :author, presence: true, length: { maximum: 50 }
-  validates :description, presence: true, length: { minimum: 10, maximum: 100 }
+  validates :description, presence: true, length: { minimum: 10 }
   validates :release_date, presence: true, date: { before:  proc {
                                                               Time.zone.today
                                                             },
