@@ -1,2 +1,2 @@
-module LightNovelsHelper # rubocop:disable Layout/EndOfLine
+module LightNovelsHelper
 end

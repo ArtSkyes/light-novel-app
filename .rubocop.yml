@@ -18,6 +18,7 @@ AllCops:
 
 require:
   - rubocop-rails
+  - rubocop-capybara
 
 Style/Encoding:
   Enabled: false
