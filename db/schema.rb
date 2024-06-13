@@ -10,12 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_06_11_201940) do
-  create_schema "pgagent"
-
+ActiveRecord::Schema[7.1].define(version: 2024_06_13_041238) do
   # These are extensions that must be enabled in order to support this database
-  enable_extension "adminpack"
-  enable_extension "pgagent"
   enable_extension "plpgsql"
 
   create_table "light_novels", force: :cascade do |t|
@@ -27,6 +23,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_11_201940) do
     t.datetime "updated_at", null: false
     t.string "genre"
     t.decimal "rating", precision: 3, scale: 2
+    t.index ["title"], name: "index_light_novels_on_title", unique: true
   end
 
 end
