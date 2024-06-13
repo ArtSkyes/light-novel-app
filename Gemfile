@@ -68,5 +68,6 @@ end
 
 gem 'rubocop'
 gem 'rubocop-rails'
+gem 'rubocop-capybara', '~> 2.21'
 
 gem 'dotenv-rails', groups: [:development, :test]
